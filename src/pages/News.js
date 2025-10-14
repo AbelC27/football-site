@@ -9,7 +9,7 @@ function News() {
       category: 'World Championship',
       date: 'March 15, 2025',
       excerpt: 'An incredible match that will be remembered for generations as one team secures their record-breaking title.',
-      image: 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=600&h=400&fit=crop',
+      image: '/images/teams/italywin.jpg',
       author: 'John Smith'
     },
     {
@@ -18,7 +18,7 @@ function News() {
       category: 'Transfers',
       date: 'March 10, 2025',
       excerpt: 'A volleyball superstar makes a surprising move to a new club, breaking transfer records in the process.',
-      image: 'https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=600&h=400&fit=crop',
+      image: '/images/teams/volleyball-transfers.webp',
       author: 'Emma Johnson'
     },
     {
@@ -27,7 +27,7 @@ function News() {
       category: 'International',
       date: 'March 8, 2025',
       excerpt: 'Last-minute points secure Olympic qualification for several nations in an action-packed tournament.',
-      image: 'https://images.unsplash.com/photo-1593786481097-b5f9b1eb4682?w=600&h=400&fit=crop',
+      image: '/images/teams/Paris2024.jpg',
       author: 'Michael Brown'
     },
     {
@@ -36,7 +36,7 @@ function News() {
       category: 'Youth Volleyball',
       date: 'March 5, 2025',
       excerpt: 'Young talents emerge from top programs, showcasing the future of world volleyball.',
-      image: 'https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?w=600&h=400&fit=crop',
+      image: '/images/teams/academy.jpg',
       author: 'Sarah Wilson'
     },
     {
@@ -45,7 +45,7 @@ function News() {
       category: 'Analysis',
       date: 'March 1, 2025',
       excerpt: 'Top coaches introduce innovative tactics that are changing the way volleyball is played.',
-      image: 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=600&h=400&fit=crop',
+      image: '/images/teams/tactic.jpg',
       author: 'David Lee'
     },
     {
@@ -54,7 +54,7 @@ function News() {
       category: 'Technology',
       date: 'February 28, 2025',
       excerpt: 'New arena innovations enhance fan experience with cutting-edge technology.',
-      image: 'https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=600&h=400&fit=crop',
+      image: '/images/teams/arena.jpg',
       author: 'Lisa Anderson'
     }
   ];
