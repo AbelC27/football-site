@@ -1,0 +1,124 @@
+.history {
+  min-height: calc(100vh - 80px);
+  padding-bottom: 60px;
+}
+
+.history .hero-section {
+  text-align: center;
+  padding: 60px 20px 40px;
+  background: linear-gradient(135deg, #434343 0%, black 100%);
+  color: white;
+  margin: -20px -20px 40px -20px;
+  border-radius: 0 0 30px 30px;
+}
+
+.history .hero-title {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.history .section-title {
+  text-align: center;
+  margin: 50px 0 30px;
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+/* Timeline Styles */
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--secondary-color);
+  opacity: 0.3;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.timeline-year {
+  min-width: 100px;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  padding-top: 20px;
+  text-align: right;
+  margin-right: 30px;
+}
+
+.timeline-content {
+  flex: 1;
+  padding: 25px;
+  border-left: 5px solid var(--primary-color);
+}
+
+.timeline-content h3 {
+  margin-bottom: 10px;
+}
+
+/* Legends Grid */
+.legends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.legend-card {
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+}
+
+.legend-card h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 20px;
+  }
+  .timeline-item {
+    flex-direction: column;
+  }
+  .timeline-year {
+    text-align: left;
+    margin-left: 30px;
+    margin-bottom: 10px;
+  }
+}   
+
+.legend-img-wrapper {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--primary-color);
+}
+
+.legend-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.legend-placeholder {
+    font-size: 3rem;
+}

@@ -23,60 +23,48 @@ function Navbar({ theme, toggleTheme }) {
           🏐 Volleyball World
         </Link>
 
-        <div className="nav-search-desktop">
-          <SearchBar />
-        </div>
-
         <div className="hamburger" onClick={toggleMenu}>
           {menuOpen ? <FaTimes /> : <FaBars />}
         </div>
 
         <ul className={menuOpen ? 'nav-menu active' : 'nav-menu'}>
           <li className="nav-item">
-            <Link
-              to="/"
-              className={location.pathname === '/' ? 'nav-link active' : 'nav-link'}
-              onClick={closeMenu}
-            >
+            <Link to="/" className={location.pathname === '/' ? 'nav-link active' : 'nav-link'} onClick={closeMenu}>
               Home
             </Link>
           </li>
           <li className="nav-item">
-            <Link
-              to="/teams"
-              className={location.pathname === '/teams' ? 'nav-link active' : 'nav-link'}
-              onClick={closeMenu}
-            >
+            <Link to="/teams" className={location.pathname === '/teams' ? 'nav-link active' : 'nav-link'} onClick={closeMenu}>
               Teams
             </Link>
           </li>
           <li className="nav-item">
-            <Link
-              to="/players"
-              className={location.pathname === '/players' ? 'nav-link active' : 'nav-link'}
-              onClick={closeMenu}
-            >
+            <Link to="/players" className={location.pathname === '/players' ? 'nav-link active' : 'nav-link'} onClick={closeMenu}>
               Players
             </Link>
           </li>
           <li className="nav-item">
-            <Link
-              to="/news"
-              className={location.pathname === '/news' ? 'nav-link active' : 'nav-link'}
-              onClick={closeMenu}
-            >
-              News
+            <Link to="/tournaments" className={location.pathname === '/tournaments' ? 'nav-link active' : 'nav-link'} onClick={closeMenu}>
+              Tournaments
             </Link>
           </li>
           <li className="nav-item">
-            <Link
-              to="/contact"
-              className={location.pathname === '/contact' ? 'nav-link active' : 'nav-link'}
-              onClick={closeMenu}
-            >
-              Contact
+            <Link to="/rules" className={location.pathname === '/rules' ? 'nav-link active' : 'nav-link'} onClick={closeMenu}>
+              Rules
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/history" className={location.pathname === '/history' ? 'nav-link active' : 'nav-link'} onClick={closeMenu}>
+              History
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/news" className={location.pathname === '/news' ? 'nav-link active' : 'nav-link'} onClick={closeMenu}>
+              News
+            </Link>
+          </li>
+          {/* Contact link removed */}
+
           <li className="nav-item nav-search-mobile">
             <SearchBar />
           </li>

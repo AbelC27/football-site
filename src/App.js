@@ -13,7 +13,10 @@ import Home from './pages/Home';
 import Teams from './pages/Teams';
 import Players from './pages/Players';
 import News from './pages/News';
-import Contact from './pages/Contact';
+// Removed Contact, Added new pages
+import Tournaments from './pages/Tournaments';
+import History from './pages/History';
+import Rules from './pages/Rules';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -41,7 +44,10 @@ function App() {
             <Route path="/teams" element={<Teams />} />
             <Route path="/players" element={<Players />} />
             <Route path="/news" element={<News />} />
-            <Route path="/contact" element={<Contact />} />
+            {/* New Routes */}
+            <Route path="/tournaments" element={<Tournaments />} />
+            <Route path="/history" element={<History />} />
+            <Route path="/rules" element={<Rules />} />
           </Routes>
         </main>
         <Footer />
