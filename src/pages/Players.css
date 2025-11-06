@@ -1,221 +1,180 @@
 .players {
-  min-height: calc(100vh - 80px);
+  padding-bottom: 60px;
+}
+
+.players .hero-section {
+  text-align: center;
+  padding: 60px 20px 40px;
+  background: linear-gradient(135deg, var(--primary-color), #6c5ce7);
+  color: white;
+  margin: -20px -20px 40px -20px;
+  border-radius: 0 0 30px 30px;
+}
+
+.players .hero-title {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  font-weight: 800;
 }
 
 .players-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  margin-bottom: 60px;
+  padding: 20px 0;
 }
 
-.player-card {
+/* --- 3D FLIP CARD STYLES --- */
+
+.player-card-container {
+  perspective: 1000px;
+  height: 450px; /* Fixed height needed for flip to work nicely */
+  cursor: pointer;
+}
+
+.player-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* Flip action applied when class is present */
+.player-card-container.flipped .player-card-inner {
+  transform: rotateY(180deg);
+}
+
+.player-card-front,
+.player-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Override default card padding for better layout */
+  padding: 30px 20px !important; 
+  box-sizing: border-box; /* Ensures padding doesn't break fixed size */
+}
+
+/* FRONT STYLES */
+.player-card-front {
+  background: var(--card-bg);
+  justify-content: space-between;
+}
+
+.player-image-wrapper {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
   overflow: hidden;
-  padding: 0;
+  border: 5px solid var(--secondary-color);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 20px;
 }
 
 .player-image {
-  position: relative;
-  width: 100%;
-  height: 350px;
-  overflow: hidden;
-}
-
-.player-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-.player-card:hover .player-image img {
-  transform: scale(1.05);
+.player-card-container:hover .player-image {
+  transform: scale(1.1);
 }
 
-.player-overlay {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+.player-info h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+}
+
+.player-team {
+  display: inline-block;
+  background: var(--bg-color);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .player-position {
-  background-color: var(--accent-color);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+.click-hint {
+  margin-top: auto;
   font-size: 0.9rem;
-  text-transform: uppercase;
+  opacity: 0.6;
+  animation: bounce 2s infinite;
 }
 
-.player-info {
-  padding: 25px;
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-5px); }
+  60% { transform: translateY(-3px); }
 }
 
-.player-info h2 {
-  color: var(--primary-color);
-  margin-bottom: 20px;
-  font-size: 1.8rem;
-  text-align: center;
+/* BACK STYLES */
+.player-card-back {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  transform: rotateY(180deg);
+  justify-content: center;
 }
 
-.player-stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+.player-card-back h3 {
+  font-family: 'Brush Script MT', cursive; /* Fun "nickname" font */
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #fff !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.stats-list {
+  width: 100%;
+  margin-bottom: 30px;
 }
 
 .stat-item {
   display: flex;
-  flex-direction: column;
-  padding: 12px;
-  background-color: var(--bg-color);
-  border-radius: 8px;
-  transition: transform 0.2s ease;
-}
-
-.stat-item:hover {
-  transform: translateY(-3px);
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
 .stat-label {
-  font-size: 0.85rem;
-  color: var(--secondary-color);
   font-weight: 600;
-  margin-bottom: 5px;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  opacity: 0.9;
 }
 
 .stat-value {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-color);
+  font-weight: 800;
 }
 
-.stat-value.highlight {
-  color: var(--accent-color);
-  font-size: 1.3rem;
-}
-
-.players-table-section {
-  margin-bottom: 40px;
-}
-
-.table-wrapper {
-  overflow-x: auto;
-  border-radius: 10px;
-  box-shadow: var(--shadow);
-}
-
-.players-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: var(--card-bg);
-}
-
-.players-table thead {
-  background-color: var(--primary-color);
-  color: white;
-}
-
-.players-table th,
-.players-table td {
+.fun-fact {
+  background: rgba(255,255,255,0.15);
   padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid var(--border-color);
+  border-radius: var(--border-radius-small);
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
-.players-table th {
-  font-weight: 600;
+.fun-fact strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--secondary-color); /* Highlights the "Did you know?" text */
+  color: #fff; /* Actually keep it white for better contrast on gradient */
   text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-}
-
-.players-table tbody tr {
-  transition: background-color 0.2s ease;
-}
-
-.players-table tbody tr:hover {
-  background-color: var(--bg-color);
-}
-
-.players-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-@media (max-width: 768px) {
-  .players-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .player-image {
-    height: 300px;
-  }
-
-  .players-table {
-    font-size: 0.9rem;
-  }
-
-  .players-table thead {
-    display: none;
-  }
-
-  .players-table,
-  .players-table tbody,
-  .players-table tr,
-  .players-table td {
-    display: block;
-    width: 100%;
-  }
-
-  .players-table tr {
-    margin-bottom: 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  .players-table td {
-    text-align: right;
-    padding: 12px;
-    position: relative;
-    padding-left: 50%;
-  }
-
-  .players-table td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    color: var(--primary-color);
-  }
-
-  .players-table td:first-child {
-    background-color: var(--primary-color);
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    padding-left: 12px;
-  }
-
-  .players-table td:first-child::before {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .player-info h2 {
-    font-size: 1.5rem;
-  }
-
-  .player-stats {
-    grid-template-columns: 1fr;
-  }
-
-  .player-image {
-    height: 250px;
-  }
+  font-size: 0.8rem;
+  letter-spacing: 1px;
 }

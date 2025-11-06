@@ -1,135 +1,135 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Players.css';
 
 function Players() {
+  // Keep track of which cards are flipped
+  const [flippedCards, setFlippedCards] = useState({});
+
+  const handleCardClick = (index) => {
+    setFlippedCards(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
+
   const players = [
     {
-      name: 'Wilfredo León',
+      name: 'Wilfredo Leon',
+      team: 'Poland 🇵🇱',
       position: 'Outside Hitter',
-      nationality: 'Poland',
-      age: 31,
-      club: 'PGE Skra Bełchatów',
-      goals: '8,500+ Points',
-      image: '/images/players/Leon.jpg'
-    },
-    {
-      name: 'Giba',
-      position: 'Outside Hitter',
-      nationality: 'Brazil',
-      age: 48,
-      club: 'Retired',
-      goals: '12,000+ Points',
-      image: '/images/players/giba.png'
-    },
-    {
-      name: 'Earvin Ngapeth',
-      position: 'Outside Hitter',
-      nationality: 'France',
-      age: 33,
-      club: 'Modena Volley',
-      goals: '7,500+ Points',
-      image: '/images/players/Earvin-Ngapeth.webp'
-    },
-    {
-      name: 'Matthew Anderson',
-      position: 'Opposite',
-      nationality: 'USA',
-      age: 37,
-      club: 'Zenit Kazan',
-      goals: '9,000+ Points',
-      image: '/images/players/Matt.png'
+      image: '/images/players/Leon.jpg',
+      // New data for the back of the card
+      stats: {
+        nickname: "Lion King",
+        vertical: "3.74m",
+        serveSpeed: "138 km/h",
+        funFact: "Holds the world record for fastest serve."
+      }
     },
     {
       name: 'Bruno Rezende',
+      team: 'Brazil 🇧🇷',
       position: 'Setter',
-      nationality: 'Brazil',
-      age: 38,
-      club: 'Sada Cruzeiro',
-      goals: '5,000+ Assists',
-      image: '/images/players/bruno.webp'
+      image: '/images/players/bruno.webp',
+      stats: {
+        nickname: "Bruninho",
+        sets_per_match: "45+",
+        leadership: "100%",
+        funFact: "Has won over 30 major titles with Brazil."
+      }
+    },
+    {
+      name: 'Earvin N\'Gapeth',
+      team: 'France 🇫🇷',
+      position: 'Outside Hitter',
+      image: '/images/players/Earvin-NGapeth.webp',
+      stats: {
+        nickname: "Magic Man",
+        style_points: "∞",
+        signature_move: "No-look hook",
+        funFact: "Famous for scoring match points backwards."
+      }
     },
     {
       name: 'Ivan Zaytsev',
-      position: 'Outside Hitter',
-      nationality: 'Italy',
-      age: 35,
-      club: 'Vero Volley Monza',
-      goals: '8,000+ Points',
-      image: '/images/players/Ivan Zaytsev.jpg'
+      team: 'Italy 🇮🇹',
+      position: 'Opposite',
+      image: '/images/players/Ivan Zaytsev.jpg',
+      stats: {
+        nickname: "The Tsar",
+        power: "Extreme",
+        hair_style: "Iconic Mohawk",
+        funFact: "His father was an Olympic Champion for USSR."
+      }
+    },
+    {
+      name: 'Matt Anderson',
+      team: 'USA 🇺🇸',
+      position: 'Opposite / OH',
+      image: '/images/players/Matt.png',
+      stats: {
+        nickname: "Matty",
+        consistency: "Legendary",
+        olympic_medals: "1 (Bronze)",
+        funFact: "Has played professionally in Korea, Italy, and Russia."
+      }
     }
   ];
 
   return (
     <div className="players fade-in">
       <div className="container">
-        <h1 className="section-title">Top Volleyball Players</h1>
-        <p className="page-description">
-          Discover the world's greatest volleyball talents and their remarkable achievements.
-        </p>
+        <section className="hero-section">
+          <h1 className="hero-title">Meet the Stars</h1>
+          <p className="hero-subtitle">Click on a player card to see their secret stats! ✨</p>
+        </section>
 
         <div className="players-grid">
           {players.map((player, index) => (
-            <div key={index} className="player-card card">
-              <div className="player-image">
-                <img src={player.image} alt={player.name} />
-                <div className="player-overlay">
-                  <span className="player-position">{player.position}</span>
+            <div 
+              key={index} 
+              className={`player-card-container ${flippedCards[index] ? 'flipped' : ''}`}
+              onClick={() => handleCardClick(index)}
+            >
+              <div className="player-card-inner">
+                {/* FRONT OF CARD */}
+                <div className="player-card-front card">
+                  <div className="player-image-wrapper">
+                    <img src={player.image} alt={player.name} className="player-image" />
+                  </div>
+                  <div className="player-info">
+                    <h3>{player.name}</h3>
+                    <span className="player-team">{player.team}</span>
+                    <div className="player-position">{player.position}</div>
+                  </div>
+                  <div className="click-hint">👆 Click to flip</div>
                 </div>
-              </div>
-              <div className="player-info">
-                <h2>{player.name}</h2>
-                <div className="player-stats">
-                  <div className="stat-item">
-                    <span className="stat-label">Nationality</span>
-                    <span className="stat-value">{player.nationality}</span>
+
+                {/* BACK OF CARD */}
+                <div className="player-card-back card">
+                  <h3>{player.stats.nickname}</h3>
+                  <div className="stats-list">
+                    {Object.entries(player.stats).map(([key, value]) => {
+                      if (key === 'nickname' || key === 'funFact') return null;
+                      // Format key from camelCase to Normal Text
+                      const label = key.replace(/_/g, ' ').replace(/([A-Z])/g, ' $1').trim();
+                      return (
+                        <div key={key} className="stat-item">
+                          <span className="stat-label">{label}:</span>
+                          <span className="stat-value">{value}</span>
+                        </div>
+                      );
+                    })}
                   </div>
-                  <div className="stat-item">
-                    <span className="stat-label">Age</span>
-                    <span className="stat-value">{player.age}</span>
-                  </div>
-                  <div className="stat-item">
-                    <span className="stat-label">Club</span>
-                    <span className="stat-value">{player.club}</span>
-                  </div>
-                  <div className="stat-item">
-                    <span className="stat-label">Career Stats</span>
-                    <span className="stat-value highlight">{player.goals}</span>
+                  <div className="fun-fact">
+                    <strong>Did you know?</strong>
+                    <p>{player.stats.funFact}</p>
                   </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
-
-        <section className="players-table-section">
-          <h2 className="section-title">Players Statistics</h2>
-          <div className="table-wrapper">
-            <table className="players-table">
-              <thead>
-                <tr>
-                  <th>Player Name</th>
-                  <th>Position</th>
-                  <th>Nationality</th>
-                  <th>Age</th>
-                  <th>Current Club</th>
-                  <th>Career Stats</th>
-                </tr>
-              </thead>
-              <tbody>
-                {players.map((player, index) => (
-                  <tr key={index}>
-                    <td data-label="Player Name">{player.name}</td>
-                    <td data-label="Position">{player.position}</td>
-                    <td data-label="Nationality">{player.nationality}</td>
-                    <td data-label="Age">{player.age}</td>
-                    <td data-label="Current Club">{player.club}</td>
-                    <td data-label="Career Goals"><strong>{player.goals}</strong></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
       </div>
     </div>
   );
