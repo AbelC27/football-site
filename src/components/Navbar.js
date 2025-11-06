@@ -16,6 +16,11 @@ function Navbar({ theme, toggleTheme }) {
     setMenuOpen(false);
   };
 
+  // Helper to check if link is active
+  const isActive = (path) => {
+    return location.pathname === path ? 'nav-link active' : 'nav-link';
+  };
+
   return (
     <nav className="navbar">
       <div className="nav-container">
@@ -23,47 +28,40 @@ function Navbar({ theme, toggleTheme }) {
           🏐 Volleyball World
         </Link>
 
+        <div className="nav-search-desktop">
+          <SearchBar />
+        </div>
+
         <div className="hamburger" onClick={toggleMenu}>
           {menuOpen ? <FaTimes /> : <FaBars />}
         </div>
 
         <ul className={menuOpen ? 'nav-menu active' : 'nav-menu'}>
           <li className="nav-item">
-            <Link to="/" className={location.pathname === '/' ? 'nav-link active' : 'nav-link'} onClick={closeMenu}>
-              Home
-            </Link>
+            <Link to="/" className={isActive('/')} onClick={closeMenu}>Home</Link>
           </li>
           <li className="nav-item">
-            <Link to="/teams" className={location.pathname === '/teams' ? 'nav-link active' : 'nav-link'} onClick={closeMenu}>
-              Teams
-            </Link>
+            <Link to="/teams" className={isActive('/teams')} onClick={closeMenu}>Teams</Link>
           </li>
           <li className="nav-item">
-            <Link to="/players" className={location.pathname === '/players' ? 'nav-link active' : 'nav-link'} onClick={closeMenu}>
-              Players
-            </Link>
+            <Link to="/players" className={isActive('/players')} onClick={closeMenu}>Players</Link>
           </li>
           <li className="nav-item">
-            <Link to="/tournaments" className={location.pathname === '/tournaments' ? 'nav-link active' : 'nav-link'} onClick={closeMenu}>
-              Tournaments
-            </Link>
+            <Link to="/tournaments" className={isActive('/tournaments')} onClick={closeMenu}>Tournaments</Link>
           </li>
           <li className="nav-item">
-            <Link to="/rules" className={location.pathname === '/rules' ? 'nav-link active' : 'nav-link'} onClick={closeMenu}>
-              Rules
-            </Link>
+            <Link to="/rules" className={isActive('/rules')} onClick={closeMenu}>Rules</Link>
           </li>
           <li className="nav-item">
-            <Link to="/history" className={location.pathname === '/history' ? 'nav-link active' : 'nav-link'} onClick={closeMenu}>
-              History
-            </Link>
+            <Link to="/history" className={isActive('/history')} onClick={closeMenu}>History</Link>
+          </li>
+           {/* NEW QUIZ LINK */}
+           <li className="nav-item">
+            <Link to="/quiz" className={isActive('/quiz')} onClick={closeMenu}>Quiz</Link>
           </li>
           <li className="nav-item">
-            <Link to="/news" className={location.pathname === '/news' ? 'nav-link active' : 'nav-link'} onClick={closeMenu}>
-              News
-            </Link>
+            <Link to="/news" className={isActive('/news')} onClick={closeMenu}>News</Link>
           </li>
-          {/* Contact link removed */}
 
           <li className="nav-item nav-search-mobile">
             <SearchBar />

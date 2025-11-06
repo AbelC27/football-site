@@ -1,5 +1,4 @@
 .tournaments {
-  min-height: calc(100vh - 80px);
   padding-bottom: 60px;
 }
 
@@ -18,50 +17,58 @@
   font-weight: 800;
 }
 
-.tournaments .section-title {
-  text-align: center;
-  margin: 40px 0 30px;
-  font-size: 2rem;
-  color: var(--primary-color);
+.tournaments .hero-subtitle {
+  font-size: 1.3rem;
+  opacity: 0.9;
 }
 
-/* Featured Tournament Banner */
-.featured-tournament {
-  margin-bottom: 50px;
-}
-
+/* Featured Banner */
 .featured-tournament h2 {
   text-align: center;
   margin-bottom: 20px;
+  color: var(--primary-color);
+  font-size: 2rem;
 }
 
 .featured-banner {
-  /* background: linear-gradient(45deg, #ff6b6b, #556270);  <-- REPLACED BY INLINE STYLE IN JS */
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-  padding: 60px 40px; /* Increased padding for better image visibility */
+  border-radius: var(--border-radius-large);
+  padding: 80px 40px;
   color: white;
   box-shadow: var(--shadow);
   text-align: center;
+  margin-bottom: 50px;
   position: relative;
+  overflow: hidden;
+}
+
+.featured-content {
+  position: relative;
+  z-index: 2;
 }
 
 .featured-content h3 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 15px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.featured-content p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
 .tournament-date {
   display: inline-block;
   background: rgba(255,255,255,0.2);
-  padding: 8px 16px;
-  border-radius: 20px;
-  margin-top: 20px;
+  backdrop-filter: blur(5px);
+  padding: 10px 25px;
+  border-radius: 50px;
   font-weight: bold;
+  font-size: 1.1rem;
 }
 
-/* Card Styles */
+/* Cards */
 .tournaments .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -70,13 +77,8 @@
 
 .tournaments .feature-card {
   position: relative;
-  padding: 30px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.tournaments .feature-card:hover {
-  transform: translateY(-5px);
+  padding: 40px 30px;
+  text-align: center;
 }
 
 .card-badge {
@@ -86,8 +88,21 @@
   background: var(--secondary-color);
   color: white;
   font-size: 0.8rem;
-  padding: 4px 10px;
-  border-radius: 10px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.tournament-logo {
+  max-width: 180px;
+  height: auto;
+  margin: 0 auto 25px;
+  display: block;
+}
+
+.tournament-icon {
+  font-size: 5rem;
+  margin-bottom: 20px;
 }
 
 .tournaments .feature-card h3 {

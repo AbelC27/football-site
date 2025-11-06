@@ -1,153 +1,135 @@
-.home {
-  min-height: calc(100vh - 80px);
+.history {
+  padding-bottom: 60px;
 }
 
-.hero-section {
+.history .hero-section {
   text-align: center;
   padding: 60px 20px 40px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, #2c3e50, #4ca1af);
   color: white;
   margin: -20px -20px 40px -20px;
   border-radius: 0 0 30px 30px;
 }
 
-.hero-title {
-  font-size: 3.5rem;
+.history .hero-title {
+  font-size: 3rem;
   margin-bottom: 15px;
-  font-weight: 800;
 }
 
-.hero-subtitle {
-  font-size: 1.5rem;
-  opacity: 0.95;
+/* Timeline Styles */
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 30px;
 }
 
-.features-section {
-  margin-bottom: 60px;
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 15px;
+  bottom: 0;
+  width: 4px;
+  background: var(--secondary-color);
+  border-radius: 4px;
+  opacity: 0.5;
 }
 
-.features-grid {
+.timeline-item {
+  display: flex;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.timeline-year {
+  min-width: 80px;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  padding-top: 0;
+  margin-right: 25px;
+  position: relative;
+}
+
+.timeline-year::before {
+  content: '';
+  position: absolute;
+  left: -43px; /* Adjust to align with the line */
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  border: 4px solid var(--bg-color);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.timeline-content {
+  flex: 1;
+}
+
+.history-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: var(--border-radius-small);
+  margin-bottom: 20px;
+}
+
+.timeline-content h3 {
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+/* Legends Grid */
+.legends-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
-.feature-card {
+.legend-card {
   text-align: center;
   padding: 40px 30px;
 }
 
-.feature-icon {
-  font-size: 4rem;
-  margin-bottom: 20px;
-}
-
-.feature-card h3 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  color: var(--primary-color);
-}
-
-.feature-card p {
-  line-height: 1.8;
-  margin-bottom: 25px;
-  opacity: 0.9;
-}
-
-.video-section {
-  margin-bottom: 60px;
-}
-
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
+.legend-img-wrapper {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 25px;
+  border-radius: 50%;
   overflow: hidden;
-  border-radius: 15px;
+  border: 5px solid var(--primary-color);
   box-shadow: var(--shadow);
 }
 
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+.legend-img-wrapper.placeholder {
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+.legend-img {
   width: 100%;
   height: 100%;
-  border-radius: 15px;
-}
-
-.stats-section {
-  margin-bottom: 40px;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.stat-card {
-  text-align: center;
-  padding: 30px 20px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: white;
-}
-
-.stat-card h3 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  font-weight: 800;
-}
-
-.stat-card p {
-  font-size: 1.1rem;
-  opacity: 0.95;
+  object-fit: cover;
 }
 
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
+  .timeline {
+    padding-left: 20px;
   }
-
-  .hero-subtitle {
-    font-size: 1.2rem;
+  .timeline-item {
+    flex-direction: column;
   }
-
-  .hero-section {
-    padding: 40px 20px 30px;
+  .timeline-year {
+    margin-bottom: 15px;
+    margin-left: 30px;
   }
-
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .feature-icon {
-    font-size: 3rem;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .stat-card h3 {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-
-  .feature-card h3 {
-    font-size: 1.5rem;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
+  .timeline-year::before {
+    left: -32px;
   }
 }
