@@ -6,21 +6,35 @@ function ImageCarousel() {
   const images = [
     {
       url: 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=1200&h=600&fit=crop',
+      srcSet:
+        'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=480&h=240&fit=crop 480w, ' +
+        'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=768&h=384&fit=crop 768w, ' +
+        'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=1200&h=600&fit=crop 1200w',
       title: 'World Championship',
       description: 'The most prestigious volleyball competition in the world'
     },
     {
       url: 'https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=1200&h=600&fit=crop',
+      srcSet:
+        'https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=480&h=240&fit=crop 480w, ' +
+        'https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=768&h=384&fit=crop 768w, ' +
+        'https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=1200&h=600&fit=crop 1200w',
       title: 'Olympic Glory',
       description: 'The ultimate prize in international volleyball'
     },
     {
-      url: 'https://images.unsplash.com/photo-1593786481097-b5f9b1eb4682?w=1200&h=600&fit=crop',
+      url: '/images/arena.jpg',
+      // Local image: provide fallbacks in srcSet (same file) — replace with multiple sizes on disk if possible
+      srcSet: '/images/arena.jpg 480w, /images/arena.jpg 768w, /images/arena.jpg 1200w',
       title: 'Arena Atmosphere',
       description: 'Experience the excitement of live volleyball'
     },
     {
       url: 'https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?w=1200&h=600&fit=crop',
+      srcSet:
+        'https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?w=480&h=240&fit=crop 480w, ' +
+        'https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?w=768&h=384&fit=crop 768w, ' +
+        'https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?w=1200&h=600&fit=crop 1200w',
       title: 'Team Victory',
       description: 'Celebrating success on the court'
     }
@@ -64,7 +78,14 @@ function ImageCarousel() {
           >
             {index === currentIndex && (
               <>
-                <img src={image.url} alt={image.title} />
+                <img
+                  src={image.url}
+                  srcSet={image.srcSet}
+                  sizes="(max-width:480px) 480px, (max-width:768px) 768px, 1200px"
+                  alt={image.title}
+                  decoding="async"
+                  loading="eager"
+                />
                 <div className="carousel-caption">
                   <h2>{image.title}</h2>
                   <p>{image.description}</p>
