@@ -9,6 +9,7 @@ import ScrollButtons from './components/ScrollButtons';
 import HelpButton from './components/HelpButton';
 // NEW IMPORT
 import BackgroundDecorations from './components/BackgroundDecorations';
+import { Analytics } from '@vercel/analytics/react';
 
 // Pages
 import Home from './pages/Home';
@@ -58,6 +59,7 @@ function App() {
         <Footer />
         <ScrollButtons />
         <HelpButton />
+        <Analytics />
       </div>
     </Router>
   );
