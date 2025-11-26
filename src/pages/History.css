@@ -68,6 +68,15 @@
   margin-bottom: 10px;
 }
 
+.history-img {
+  width: 100%;
+  max-width: 300px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: var(--border-radius-small);
+  margin-bottom: 15px;
+}
+
 /* Legends Grid */
 .legends-grid {
   display: grid;
@@ -78,11 +87,11 @@
 .legend-card {
   text-align: center;
   padding: 30px 20px;
-  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  background: var(--card-bg);
 }
 
 .legend-card h3 {
-  color: #333;
+  color: var(--primary-color);
   margin-bottom: 15px;
 }
 

@@ -20,6 +20,8 @@ import Tournaments from './pages/Tournaments';
 import History from './pages/History';
 import Rules from './pages/Rules';
 import Quiz from './pages/Quiz';
+import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
 function App() {
   // Initialize theme from localStorage or default to 'light'
@@ -54,6 +56,8 @@ function App() {
             <Route path="/history" element={<History />} />
             <Route path="/rules" element={<Rules />} />
             <Route path="/quiz" element={<Quiz />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

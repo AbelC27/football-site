@@ -85,10 +85,17 @@ function Contact() {
       setSending(true);
       setSendError('');
 
-      // EmailJS configuration
-      const serviceId = 'YOUR_SERVICE_ID'; // You'll need to replace this
-      const templateId = 'YOUR_TEMPLATE_ID'; // You'll need to replace this
-      const publicKey = 'YOUR_PUBLIC_KEY'; // You'll need to replace this
+      // EmailJS configuration - loaded from environment variables
+      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        console.error('EmailJS credentials are not set. Please check your .env file.');
+        setSendError('Configuration Error: EmailJS credentials are missing. Please contact the site administrator.');
+        setSending(false);
+        return;
+      }
 
       // Prepare template parameters
       const templateParams = {
@@ -97,7 +104,7 @@ function Contact() {
         phone: formData.phone,
         subject: formData.subject,
         message: formData.message,
-        to_email: 'abelcaluseri@yahoo.com'
+        to_email: 'caluseriabeldaniel@gmail.com'
       };
 
       // Send email using EmailJS
@@ -122,7 +129,7 @@ function Contact() {
         .catch((error) => {
           console.error('Failed to send email:', error);
           setSending(false);
-          setSendError('Failed to send message. Please try again or email us directly at abelcaluseri@yahoo.com');
+          setSendError('Failed to send message. Please try again or email us directly at caluseriabeldaniel@gmail.com');
           setTimeout(() => {
             setSendError('');
           }, 7000);
@@ -170,7 +177,7 @@ function Contact() {
             <h2>Send us a Message</h2>
             {submitted && (
               <div className="success-message">
-                ✓ Thank you! Your message has been sent successfully to abelcaluseri@yahoo.com
+                ✓ Thank you! Your message has been sent successfully to caluseriabeldaniel@gmail.com
               </div>
             )}
             {sendError && (
@@ -254,7 +261,7 @@ function Contact() {
               </button>
             </form>
             <p className="email-note">
-              <small>Email will be sent to: <strong>abelcaluseri@yahoo.com</strong></small>
+              <small>Email will be sent to: <strong>caluseriabeldaniel@gmail.com</strong></small>
             </p>
           </div>
         </div>

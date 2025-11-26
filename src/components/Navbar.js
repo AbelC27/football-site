@@ -62,6 +62,9 @@ function Navbar({ theme, toggleTheme }) {
           <li className="nav-item">
             <Link to="/news" className={isActive('/news')} onClick={closeMenu}>News</Link>
           </li>
+          <li className="nav-item">
+            <Link to="/contact" className={isActive('/contact')} onClick={closeMenu}>Contact</Link>
+          </li>
 
           <li className="nav-item nav-search-mobile">
             <SearchBar />
