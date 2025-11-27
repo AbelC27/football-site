@@ -52,7 +52,7 @@ function SearchBar() {
         <FaSearch className="search-icon" />
         <input
           type="text"
-          placeholder="Search volleyball teams, players, news..."
+          placeholder="Search..."
           value={searchTerm}
           onChange={(e) => handleSearch(e.target.value)}
           onFocus={() => searchTerm && setShowResults(true)}

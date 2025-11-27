@@ -7,25 +7,34 @@
   position: relative;
   display: flex;
   align-items: center;
+  background-color: var(--bg-color);
+  border-radius: 25px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.search-input-wrapper:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 91, 234, 0.1);
 }
 
 .search-icon {
   position: absolute;
-  left: 15px;
+  left: 12px;
   color: var(--text-color);
   opacity: 0.5;
-  font-size: 1rem;
+  font-size: 0.85rem;
   pointer-events: none;
 }
 
 .search-input {
   width: 100%;
-  padding: 10px 15px 10px 45px;
+  padding: 8px 12px 8px 35px;
   border: none;
   border-radius: 25px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   outline: none;
-  background-color: var(--bg-color);
+  background-color: transparent;
   color: var(--text-color);
   transition: all 0.3s ease;
 }
@@ -35,11 +44,6 @@
   opacity: 0.5;
 }
 
-.search-input:focus {
-  background-color: var(--card-bg);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-}
-
 .search-results {
   position: absolute;
   top: 100%;
@@ -47,7 +51,7 @@
   right: 0;
   background-color: var(--card-bg);
   border-radius: 10px;
-  margin-top: 10px;
+  margin-top: 8px;
   max-height: 300px;
   overflow-y: auto;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -55,7 +59,7 @@
 }
 
 .search-result-item {
-  padding: 12px 20px;
+  padding: 12px 16px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -90,76 +94,15 @@
 }
 
 .result-type {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: var(--text-color);
   background-color: var(--bg-color);
-  padding: 4px 12px;
+  padding: 3px 10px;
   border-radius: 15px;
 }
 
 @media screen and (max-width: 960px) {
   .search-input {
-    font-size: 0.95rem;
-  }
-}
-.search-bar {
-  display: flex;
-  align-items: center;
-  background-color: var(--bg-color);
-  border-radius: 50px;
-  padding: 5px 15px;
-  box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-  width: 100%; /* Tries to fill its container */
-}
-
-body.dark .search-bar {
-  background-color: rgba(255,255,255,0.1);
-}
-
-.search-bar:focus-within {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(0, 91, 234, 0.1);
-}
-
-.search-input {
-  border: none;
-  background: transparent;
-  padding: 8px 10px;
-  font-size: 1rem;
-  color: var(--text-color);
-  outline: none;
-  width: 100%;
-  /* FIX: Increased minimum width so text isn't cut off */
-  min-width: 220px; 
-}
-
-.search-input::placeholder {
-  color: var(--text-color);
-  opacity: 0.6;
-}
-
-.search-button {
-  background: transparent;
-  border: none;
-  color: var(--primary-color);
-  cursor: pointer;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px;
-  transition: transform 0.2s ease;
-}
-
-.search-button:hover {
-  transform: scale(1.1);
-}
-
-@media (max-width: 768px) {
-  .search-input {
-      /* On mobile we let it shrink to fit the screen */
-      min-width: 0;
+    font-size: 0.9rem;
   }
 }

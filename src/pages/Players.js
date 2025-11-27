@@ -73,6 +73,42 @@ function Players() {
         olympic_medals: "1 (Bronze)",
         funFact: "Has played professionally in Korea, Italy, and Russia."
       }
+    },
+    {
+      name: 'Zhu Ting',
+      team: 'China 🇨🇳',
+      position: 'Outside Hitter',
+      image: '/images/players/zhu-ting.jpg',
+      stats: {
+        nickname: "MVP Queen",
+        olympic_medals: "1 (Gold)",
+        world_titles: "2",
+        funFact: "Named MVP of every major tournament she played in 2015-2019."
+      }
+    },
+    {
+      name: 'Paola Egonu',
+      team: 'Italy 🇮🇹',
+      position: 'Opposite',
+      image: '/images/players/paola-egonu.jpg',
+      stats: {
+        nickname: "The Powerhouse",
+        spike_height: "3.44m",
+        scoring: "Elite",
+        funFact: "Holds the record for most points in a single Olympic match (47 points)."
+      }
+    },
+    {
+      name: 'Tijana Bošković',
+      team: 'Serbia 🇷🇸',
+      position: 'Opposite',
+      image: '/images/players/tijana-boskovic.jpg',
+      stats: {
+        nickname: "Tia",
+        world_titles: "2",
+        attack_power: "Devastating",
+        funFact: "Led Serbia to back-to-back World Championship titles in 2018 and 2022."
+      }
     }
   ];
 
